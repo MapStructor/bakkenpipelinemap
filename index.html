@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>Bakken Pipeline Map</title>
+
+<!--  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
+-->
+
+<link rel="stylesheet" href="https://bakkenpipelinemap.com/moved_scripts/cartodb.css" />
+<script src="https://bakkenpipelinemap.com/moved_scripts/cartodb.js"></script>
+
+  <style>
+    html, body {width:100%; height:100%; padding: 0; margin: 0;}
+    #map { width: 100%; height:100%; background: black;}
+    #menu { position: absolute; top: 5px; right: 10px; width: 400px; height:60px; background: transparent; z-index:10;}
+    #menu a { 
+      margin: 15px 10px 0 0;
+      float: right;
+      vertical-align: baseline;
+      width: 70px;
+      padding: 10px;
+      text-align: center;
+      font: bold 11px "Helvetica",Arial;
+      line-height: normal;
+      color: #555;
+      border-radius: 4px;
+      border: 1px solid #777777;
+      background: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #menu a.selected,
+    #menu a:hover { 
+      color: #F84F40;
+    }
+	
+	#navmenu ul {margin: 0; padding: 0; 
+	list-style-type: none; list-style-image: none; }
+	#navmenu li {display: inline; }
+	#navmenu li {text-decoration:none;  margin: -10px;
+		font-size: 400%;
+		padding: 5px 20px 5px 20px; color: WHITE;
+		background: BLACK;}
+	#navmenu li2 {text-decoration:none;  margin: -10px;
+		font-size: 150%;
+		padding: 5px 20px 5px 20px; color: WHITE;
+		background: BLACK;}
+	#navmenu li3 {text-decoration:none;  margin: -10px;
+		font-size: 200%;
+		padding: 5px 20px 5px 20px; color: WHITE;
+		background: BLACK;}
+	#navmenu ul li a {text-decoration:none;  margin: -11px;
+		padding: 5px 20px 5px 20px; color: black;
+		background: white;}
+	#navmenu ul li a:hover {color: white;
+		background: black; }
+		#navmenu {
+			z-index: 99;
+			position: absolute;
+			left: 55px;
+			}
+	
+	
+  </style>
+
+  <script>
+  var map;
+  
+// credit: http://html5doctor.com/finding-your-position-with-geolocation/
+function detectUserLocation(){
+  if (navigator.geolocation) {
+    var timeoutVal = 10 * 1000 * 1000;
+    navigator.geolocation.watchPosition(
+      mapToPosition, 
+      alertError,
+      { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+    );
+  }
+  else {
+    alert("Geolocation is not supported by this browser");
+  }
+  function alertError(error) {
+    var errors = { 
+      1: 'Permission denied',
+      2: 'Position unavailable',
+      3: 'Request timeout'
+    };
+    alert("Error: " + errors[error.code]);
+  }
+}
+  
+function mapToPosition(position) {
+  lon = position.coords.longitude;
+  lat = position.coords.latitude;
+  //map.setView(new L.LatLng(lat,lon), 7);
+  new L.CircleMarker([lat,lon],{radius: 25}).addTo(map);
+}
+function init(){
+  var zoom = 6;
+  var mapWidth = $("#map").width()
+  if(mapWidth < 800){
+    zoom = 5;
+  }
+  // initiate leaflet map
+  map = new L.Map('map', { 
+  //      center: [20,-20],
+  //      zoom: 3
+    center: [43.5446,-96.7311],
+    zoom: zoom
+  })
+// L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/hybrid.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}', {
+//   attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+//   subdomains: '1234',
+//   mapID: 'newest',
+//   app_id: '<your app_id>',
+//   app_code: '<your app_code>',
+//   base: 'aerial',
+//   maxZoom: 20,
+//   type: 'maptile',
+//   language: 'eng',
+//   format: 'png8',
+//   size: '256'
+// }).addTo(map);
+L.tileLayer('https://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/hybrid.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}', {
+attribution: 'Map :copyright: 1987-2014 <a href="http://developer.here.com">HERE</a>',
+subdomains: '1234',
+mapID: 'newest',
+app_id: 'KuYppsdXZznpffJsKT24',
+app_code: 'A7tBPacePg9Mj_zghvKt9Q',
+base: 'aerial',
+maxZoom: 20,
+type: 'maptile',
+language: 'eng',
+format: 'png8',
+size: '256'
+}).addTo(map);
+
+  var layerUrl = 'https://nittyjee.carto.com/api/v2/viz/6c459170-8476-11e6-af6f-0e05a8b3e3d7/viz.json';
+  var sublayers = [];
+  cartodb.createLayer(map, layerUrl,{ https: true })
+    .addTo(map)
+    .on('done', function(layer) {
+      detectUserLocation();
+    }).on('error', function() {
+      //log the error
+    });
+}
+
+
+
+
+
+
+  </script>
+  
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85433118-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+</head>
+
+<div id="navmenu">
+<ul>
+<!--
+-->
+  <li>THE BAKKEN PIPELINE</li>
+  <br>
+<!--  -->
+<li3>> AKA THE DAKOTA ACCESS PIPELINE (DAPL)<font color="BLACK"></FONT></li3>
+<br>
+<br>
+<!-- -->
+  <li2>CURRENT CONSTRUCTION PROGRESS</li2>
+<br>
+<br>
+<br>
+  <li><a href="http://bakkenpipelinemap.com/about" target="_blank">>ABOUT</a></li>
+  </ul>
+</div>
+
+
+<body onload="init()">
+  <div id='map'></div>
+</body>
+</html>

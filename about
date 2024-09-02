@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Bakken Pipeline Map : ABOUT</title>
+<style>
+p {
+    max-width: 800px;
+}
+</style>
+</head>
+<body>
+
+<p style="padding-left: 30px;"><h1>ABOUT THIS MAP</h1></p>
+<font size = 5>
+<p style="padding-left: 30px;">The Bakken Pipeline, also known as the Dakota Access Pipeline (DAPL) is a very controversial oil pipeline that is currently being constructed, that is being fought for the endangerment of water and soil resources, its proximity to the Standing Rock Reservation of the Sioux Tribe and its cultural resources, and the improper use of eminent domain. Thousands of people have gathered in protests along the pipeline, especially in North Dakota and Iowa. The pipeline is being built across four states, from North Dakota, where shale oil is being extracted, and pumped through South Dakota, Iowa and Illinois, where it will be hooked to an existing pipeline to deliver oil to the Gulf of Mexico.</p>
+<p style="padding-left: 30px;">This map shows the precise location of the pipeline and allows you to locate your current position, shows the current construction progress, properties it crosses and taken by eminent domain, and property owners in a lawsuit with Dakota Access LLC. The diameter of the pipeline is 30 inches, and the 50 ft easement is shown, as well as the temporary 150 ft right of way.</p>
+<p style="padding-left: 30px;">The map is an effort coordinated by Nitin Gadia, a resident of Ames, Iowa, in an effort to support the efforts to inform people about the pipeline, and support the efforts to resist the pipeline, who develops content with mapstory.org, a website dedicated to open mapping data.</p>
+<p style="padding-left: 30px;">Efforts in North Dakota to obtain map data were denied when Dakota Access requested that authorities restrict the data. People have had to rely on hard copies of maps to see where the pipeline lies, and the map was drawn using hundreds of public record maps from each of the states.</p>
+<p style="padding-left: 30px;">The pipeline has been mostly constructed in all states. <strong>Construction progress is only reported in Iowa, and was previously updated weekly; since the pipeline has mostly been laid since the last update on 11/16/2016, all of the pipeline has been marked as "mostly complete".</strong> Weekly construction maps have been required to be provided to Dakota Access to the Iowa Utilities Board (IUB). Users are encouraged to crowdsource information, like locations of protests and events. For more information about the map and how participate, read the About page and blog post written by Gadia.</p>
+<p style="padding-left: 30px;">For more on the motivation and issues surrounding this map, and to view and obtain an embed, check out the <strong>blog post</strong>:<br /><strong><a title="Mapping the Bakken Pipeline and Our &ldquo;Secret&rdquo; Infrastructure" href="http://mapstoryblog.thenittygritty.org/mapping-the-bakken-pipeline-and-our-secret-infrastructure/" rel="bookmark">Mapping the Bakken Pipeline and Our &ldquo;Secret&rdquo; Infrastructure</a></strong></p>
+<p style="padding-left: 30px;"><strong>This map could use your help.</strong> It needs to add the precise locations of protests and events. If you're interested in helping, contact Nitin below.</p>
+<p style="padding-left: 30px;">Map license: CC-BY. Credits can be listed as: bakkenpipelinemap.com, Nitin Gadia of MapStory.org, Carl Sack</p>
+<p style="padding-left: 30px;"><br /><strong>Github page (for sources, data, collaboration):</strong><br /><a href="https://github.com/nittyjee/bakkenpipelinemap">https://github.com/nittyjee/bakkenpipelinemap</a></p>
+<p style="padding-left: 30px;"><br /><strong>Contact:</strong><br />Nitin Gadia<br />nittyjee at gmail dot com</p>
+</body>
+</html>
